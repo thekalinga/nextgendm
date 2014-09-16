@@ -4,10 +4,16 @@ Requirements for the NextGen Download Manager
 Overall plan
 --
 
+#Unknown topics
+
+1. Types of proxy servers supported
+2. Speed limit
+3. Shortcut creation for various operating systems
+
 #Phase 1
 
 1. Multi-lingual
-2. Multi-platform
+2. Multi-platform (OS)
 3. Multiple protocols
 	4. HTTP
 	5. HTTPS
@@ -38,3 +44,5 @@ Overall plan
 10. Plug-in support
 	11. New protocol support
 	11. Post download processing support
+12. Misc features
+	13. Tor support
