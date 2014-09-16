@@ -51,7 +51,12 @@ class DownloadCommand
 		addToQueue()
 		username()
 		password()
-		NewDownloadCommand build()
+		new()
+		id()
+		DownloadCommand build()
+	boolean isNew
+	// If the download is not new, the temp directory should have the partly downloaded files from earlier tries
+	String id
 	String immediate
 	String url
 	// Authentication info. We only support BASIC authentication
@@ -64,12 +69,20 @@ class DownloadCommand
 	void setQueueName(String queueName)
 		// sets queued flag
 
-interface Handler
-	boolean supportsProtocol()
+class ProtocolHandlerRegistry
+	ProtocolHandler getHandler() throws UnsupportedProtocolException
+	Set<ProtocolHandler> protocolHandlers
+	void addProtocolHandler(ProtocolHandler protocolHandler)
+
+interface ProtocolHandler
+	boolean supports(DownloadCommand downloadCommand)
 	void handle(DownloadCommand downloadCommand)
 
-class HttpHandler -> Handler
+class HttpHandler -> ProtocolHandler
 	boolean supports()
+
+interface Assembler
+interface PostDownloadProcessor
 
 class DownloadChunk
 	int startIndex
