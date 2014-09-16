@@ -96,6 +96,16 @@ class DownloadInfo
 	boolean areAllChunksAvailableLocally()
 	boolean didAssembleComplete()
 	boolean isDownloadComplete()
+
+// Events
+class DownloadQueued
+class DownloadStarted
+class DownloadPaused
+class DownloadResumed
+class DownloadComplete
+class PostProcessStarted
+class PostProcessingComplete
+class DownloadDeleted
 ```	
 
 > Written with [StackEdit](https://stackedit.io/).
