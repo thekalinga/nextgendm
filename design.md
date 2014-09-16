@@ -6,6 +6,7 @@ Classes
 
 ```java
 // UI specific
+// Categories to organize the downloads conveniently
 class DownloadCategory
 	String name
 	String targetDirectory
@@ -13,15 +14,18 @@ class DownloadCategory
 	List<DownloadCategory> childs
 	void addChild(DownloadCategory childCategory)
 		// sets canSetTargetDir to false
-	
+
+// Queues to schedule/queue downloads instead of concurrent downloads
 class DownloadQueue
 	String name
-	String targetDirectory
+	// Will help in organizing the directories
+	Category category
 	LocalTime startsAt
 	LocalTime stopsAt
+	int maxActiveDownloads
 
 class Settings
-	boolean autoTakeOverFilesWithExtension
+	boolean autoTakeOverDownloadsWithKnownExtension
 	// Where to save the data
 	List<String> knowsExtensions
 	// Runtime affects
@@ -31,7 +35,7 @@ class Settings
 	Map<String, Credential> authenticationAliasToCredential
 	Credential proxyServerCredential
 
-class Credentials
+class Credential
 	String host
 	String port
 	String username
@@ -40,12 +44,14 @@ class Credentials
 class DownloadCommand
 	private DownloadCommand()
 	class Builder
+		name()
+		path()
 		url()
 		immediate()
 		addToQueue()
 		username()
 		password()
-		DownloadCommand build()
+		NewDownloadCommand build()
 	String immediate
 	String url
 	// Authentication info. We only support BASIC authentication
