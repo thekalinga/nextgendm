@@ -30,6 +30,9 @@ Overall plan
 	7. Disc space check before & during the download
 	8. Dynamic progress bar
 	9. Local anti-virus check & **Virustotal** auto upload support
+	10. Strategies to identify the next download task
+		15. Get from maximum loaded guy
+		16. Starting one first
 
 #Phase 2
 
